@@ -1,64 +1,75 @@
 // ALAB CONTROL FLOW
 
+// part 1
+
 const PI = 3.1415;
 const radius = 5;
 const area = PI * radius * radius;
 
 const minSpacePerPlant = 0.8
-// const startingPlants = 20;
-// let week = 1;
+const startingPlants = 20;
+{
 
-// let plantCount = startingPlants * (2 ** week)
+// plant growth for each week
 
-// let maxCapacity = area / minSpacePerPlant;
+const maxSpace = area / minSpacePerPlant;
+const pruneLimit = maxSpace * 0.8;
+const monitorLimit = maxSpace * 0.5;
 
-// // plant growth for each week
-// let week = 1;
-// let plantCount = startingPlants * (2 ** week)
-// console.log(`During ${week} there were ${plantCount}`);
+// week 1 
+let week = 1;
+let plantCount = startingPlants * (2 ** week);
+console.log(`During ${week} there were ${plantCount}`);
 
-// let week = 2; let plantCount = startingPlants * (2 ** week) 
-// console.log(`During ${week} there were ${plantCount}`); 
+// pruned / monitored (50-80) or planted
 
-// let week = 3; let plantCount = startingPlants * (2 ** week) 
-// console.log(`During ${week} there were ${plantCount}`);
+if(plantCount > pruneLimit) {
+    console.log("Prune the plants");
+} else if (plantCount >= monitorLimit && plantCount <= pruneLimit){
+    console.log("Monitor the plants");
+} else {
+    console.log("Plant more plants");
+}
 
-// // Pruned section
+// week 2
 
-// const maxCapacity = area / minSpacePerPlant;
+week = 2; plantCount = startingPlants * (2 ** week);
+console.log(`During ${week} there were ${plantCount}`); 
 
-// const pruneLimit = maxCapacity * 0.8;
+// pruned - monitored (50-80) or planted 
 
-// if(plantCount > pruneLimit) {
-//     console.log("Prune the plants");
-// }
+if(plantCount > pruneLimit) {
+    console.log("Prune the plants");
+} else if (plantCount >= monitorLimit && plantCount <= pruneLimit){
+    console.log("Monitor the plants");
+} else {
+    console.log("Plant more plants");
+}
 
-// // monitored section 50% - 80%
+// week 3 
 
-// const pruneLimit = maxCapacity * 0.8;
-// const monitorLimit = maxCapacity * 0.5
+week = 3; plantCount = startingPlants * (2 ** week);
+console.log(`During ${week} there were ${plantCount}`);
 
-// if(plantCount > pruneLimit) {
-//     console.log("Prune the plants")
-// } else if (plantCount >= monitorLimit && plantCount <= pruneLimit){
-//     console.log("Monitor the plants");
-// }
+// pruned / monitored (50-80) or planted
 
-// // Planted section less than 50%
+if(plantCount > pruneLimit) {
+    console.log("Prune the plants");
+} else if (plantCount >= monitorLimit && plantCount <= pruneLimit){
+    console.log("Monitor the plants");
+} else {
+    console.log("Plant more plants");
+}
 
-// if(plantCount > pruneLimit) {
-//     console.log("Prune the plants")
-// } else if (plantCount >= monitorLimit && plantCount <= pruneLimit){
-//     console.log("Monitor the plants");
-// } else {
-//     console.log("Plant more plants");
-// }
+}
+
 
 // part 2 
+{
 const startingPlants = 100;
 let week = 10;
 
-// plants after 10 week ^^^
+// // plants after 10 week ^^^
 const plantCount = startingPlants * (2 ** week);
 console.log(plantCount);
 
@@ -76,3 +87,21 @@ console.log(newSpace);
 
 const newRadius = Math.sqrt(spaceNeeded / PI);
 console.log(newRadius);
+}
+
+
+// // part 3
+
+{
+try {
+    const plantCount = 100;
+    const spaceNeeded = plantCount * minSpacePerPlant;
+    
+    if (spaceNeeded > area) {
+        throw new Error("plants need more space than what the garden provides");
+    }
+} catch (error) {
+    console.log(error.message);    
+}
+
+}
