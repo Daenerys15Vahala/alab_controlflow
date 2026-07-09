@@ -12,4 +12,8 @@ let plantCount = startingPlants * (2 ** week)
 
 let maxCapacity = area / minSpacePerPlant;
 
+// plant growth for each week
+let week = 1;
+let plantCount = startingPlants * (2 ** week)
+console.log(`During ${week} there were ${plantCount}`);
 
