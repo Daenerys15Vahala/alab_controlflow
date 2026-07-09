@@ -1,10 +1,10 @@
 // ALAB CONTROL FLOW
 
-// const PI = 3.1415;
-// const radius = 5;
-// const area = PI * radius * radius;
+const PI = 3.1415;
+const radius = 5;
+const area = PI * radius * radius;
 
-// const minSpacePerPlant = 0.8
+const minSpacePerPlant = 0.8
 // const startingPlants = 20;
 // let week = 1;
 
@@ -61,3 +61,18 @@ let week = 10;
 // plants after 10 week ^^^
 const plantCount = startingPlants * (2 ** week);
 console.log(plantCount);
+
+// space needed if scientist were to start with 100 plants?
+
+const spaceNeeded = plantCount * minSpacePerPlant;
+console.log(spaceNeeded);
+
+// additional space needed? 
+
+const newSpace = spaceNeeded - PI * radius * radius;
+console.log(newSpace);
+
+// // circular space?
+
+const newRadius = Math.sqrt(spaceNeeded / PI);
+console.log(newRadius);
